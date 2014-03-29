@@ -12,6 +12,11 @@ function Start () {
 }
 
 function Update () {
+
+	if (Input.GetKey (KeyCode.R))
+		Application.LoadLevel(0);
+
+
   if ( Input.GetKey(KeyCode.UpArrow) ) {
   	if( !DoesCastCollide(Vector3(0, 1, 0)) )
   		transform.position.y += 0.1;
