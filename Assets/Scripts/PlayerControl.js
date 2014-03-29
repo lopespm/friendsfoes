@@ -28,10 +28,12 @@ function Update () {
 function DoesCastCollide(vector) :boolean {	
 	var hit : RaycastHit;
 	if (Physics.Raycast (transform.position, vector, hit, 0.6)) {
-	    if (hit.collider.gameObject.name == "Dirt(Clone)") {
-	    	hit.collider.gameObject.GetComponent(typeof(Dirt)).Hit();
-	            return true;
-	        }
+	    if (hit.collider.gameObject.name == "Dirt(Clone)" ||
+	    	hit.collider.gameObject.name == "HardDirt1(Clone)" ||
+	    	hit.collider.gameObject.name == "Rock(Clone)") {
+	    	hit.collider.gameObject.GetComponent(typeof(TileLife)).Hit(false);
+	        return true;
+	    }
 	}
 
     return false;

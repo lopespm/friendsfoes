@@ -1,12 +1,14 @@
 #pragma strict
 
 var dirtPrefab : GameObject;
+var hardRock1Prefab : GameObject;
+var rockPrefab : GameObject;
 
 var tileArray = [
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,2,0,3,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,1,1,0,0,0,0,0,0],
-    [0,0,2,0,0,0,0,1,0,0,0,0,0,0],
+    [0,0,2,0,0,0,0,1,0,0,0,2,0,0],
     [0,0,0,0,0,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,2,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -44,10 +46,18 @@ function CreateTiles() {
 	for (var x = 0; x < tileArray[0].Length; x++) {
         for (var y = 0; y < tileArray.Length; y++) {
         	var tileType = tileArray[y][x];
+        	var cube:GameObject;
         	if(tileType == 0) {
-        	    var cube = Instantiate(dirtPrefab, transform.position, transform.rotation);
+        	    cube = Instantiate(dirtPrefab, transform.position, transform.rotation);
+            	cube.transform.position = Vector3 (offsetX + x, offsetY - y, -4.7);
+            } else if(tileType == 2) {
+        	    cube = Instantiate(hardRock1Prefab, transform.position, transform.rotation);
+            	cube.transform.position = Vector3 (offsetX + x, offsetY - y, -4.7);
+            } else if(tileType == 3) {
+        	    cube = Instantiate(rockPrefab, transform.position, transform.rotation);
             	cube.transform.position = Vector3 (offsetX + x, offsetY - y, -4.7);
             }
+            
 		}
     }	
 }
