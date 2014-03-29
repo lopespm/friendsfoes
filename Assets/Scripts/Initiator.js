@@ -3,7 +3,7 @@
 var dirtPrefab : GameObject;
 var hardRock1Prefab : GameObject;
 var rockPrefab : GameObject;
-
+//0 dirt 1 empty 2 hard 3 rock 4 friendfoe
 var tileArray = [
     [0,0,0,0,0,0,0,0,0,2,0,3,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
