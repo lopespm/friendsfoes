@@ -45,6 +45,8 @@ function Update () {
   	transform.position.y = 0.142529;
   }
   
+  SaveOrDieOnTouchFoe();
+  
 }
 
 
@@ -64,5 +66,17 @@ function DoesCastCollide(vector) :boolean {
 }
 
 function SaveOrDieOnTouchFoe() {
-	
+	var colliders : Collider[] = Physics.OverlapSphere( transform.position, 0.2 );
+	 
+	for(var hit in colliders) {
+	    if(hit.gameObject.name == "FriendFoe1(Clone)") {
+	    	if(isHuman) {
+	    		Debug.Log("Die");
+	    		Destroy(gameObject);
+	    	} else {
+	    		Debug.Log("Save");
+	    		Destroy(hit.gameObject);
+	    	}
+	    }
+	}
 }
