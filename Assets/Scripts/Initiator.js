@@ -1,14 +1,14 @@
 #pragma strict
 
-var tilePrefab : Transform;
+var dirtPrefab : GameObject;
 
 var tileArray = [
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,1,1,0,0,0,0,0,0],
+    [0,0,2,0,0,0,0,1,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+    [0,0,0,0,2,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -41,12 +41,12 @@ function Update () {
 function CreateTiles() {
 	var offsetX = -tileArray.Length/2;
 	var offsetY = -1;
-	for (var x = 0; x < tileArray.Length; x++) {
-        for (var y = 0; y < tileArray[0].Length; y++) {
+	for (var x = 0; x < tileArray[0].Length; x++) {
+        for (var y = 0; y < tileArray.Length; y++) {
         	var tileType = tileArray[y][x];
         	if(tileType == 0) {
-            	var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            	cube.transform.position = Vector3 (offsetX + x, offsetY - y, -2);
+        	    var cube = Instantiate(dirtPrefab, transform.position, transform.rotation);
+            	cube.transform.position = Vector3 (offsetX + x, offsetY - y, -4.7);
             }
 		}
     }	
