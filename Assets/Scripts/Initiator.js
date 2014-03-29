@@ -3,7 +3,11 @@
 var dirtPrefab : GameObject;
 var hardRock1Prefab : GameObject;
 var rockPrefab : GameObject;
+var friendfoe1Prefab : GameObject;
+
 //0 dirt 1 empty 2 hard 3 rock 4 friendfoe
+
+
 var tileArray = [
     [0,0,0,0,0,0,0,0,0,2,0,3,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -11,8 +15,8 @@ var tileArray = [
     [0,0,2,0,0,0,0,1,0,0,0,2,0,0],
     [0,0,0,0,0,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,2,0,0,1,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+    [0,0,0,0,1,1,1,1,1,4,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -55,6 +59,9 @@ function CreateTiles() {
             	cube.transform.position = Vector3 (offsetX + x, offsetY - y, -4.7);
             } else if(tileType == 3) {
         	    cube = Instantiate(rockPrefab, transform.position, transform.rotation);
+            	cube.transform.position = Vector3 (offsetX + x, offsetY - y, -4.7);
+            } else if(tileType == 4) {
+        	    cube = Instantiate(friendfoe1Prefab, transform.position, transform.rotation);
             	cube.transform.position = Vector3 (offsetX + x, offsetY - y, -4.7);
             }
             

@@ -1,5 +1,9 @@
 ﻿#pragma strict
 
+var werewolfLife:int=100;
+var werewolfLifeCounter:int;
+var isHuman:boolean;
+
 function Start () {
 
 }
@@ -22,6 +26,20 @@ function Update () {
 	if( !DoesCastCollide(Vector3(-1, 0, 0)))
 		transform.position.x -= 0.1;
   }
+  
+  if(transform.position.y>0) {
+  	werewolfLifeCounter = werewolfLife;
+  	isHuman = false;
+  }
+  
+  if(werewolfLifeCounter<0) {
+  	isHuman = true;	
+  }
+  
+  if(transform.position.y > 0.142529) {
+  	transform.position.y = 0.142529;
+  }
+  
 }
 
 
@@ -31,10 +49,15 @@ function DoesCastCollide(vector) :boolean {
 	    if (hit.collider.gameObject.name == "Dirt(Clone)" ||
 	    	hit.collider.gameObject.name == "HardDirt1(Clone)" ||
 	    	hit.collider.gameObject.name == "Rock(Clone)") {
-	    	hit.collider.gameObject.GetComponent(typeof(TileLife)).Hit(false);
+	    	hit.collider.gameObject.GetComponent(typeof(TileLife)).Hit(isHuman);
+	    	werewolfLifeCounter--;
 	        return true;
 	    }
 	}
 
     return false;
+}
+
+function SaveOrDieOnTouchFoe() {
+	
 }
