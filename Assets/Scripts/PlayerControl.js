@@ -4,6 +4,9 @@ var werewolfLife:int=100;
 var werewolfLifeCounter:int;
 var isHuman:boolean;
 
+var humanMaterial :Material;
+var werewolfMaterial :Material;
+
 function Start () {
 
 }
@@ -30,10 +33,12 @@ function Update () {
   if(transform.position.y>0) {
   	werewolfLifeCounter = werewolfLife;
   	isHuman = false;
+  	renderer.material = werewolfMaterial;
   }
   
   if(werewolfLifeCounter<0) {
   	isHuman = true;	
+  	renderer.material = humanMaterial;
   }
   
   if(transform.position.y > 0.142529) {
