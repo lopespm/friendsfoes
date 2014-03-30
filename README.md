@@ -1,3 +1,7 @@
+Friends and Foes
+=================
+
+
 Made on the March Mini Game Jam by:
  - NICC
  - r.o
